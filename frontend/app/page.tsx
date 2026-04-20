@@ -1,5 +1,7 @@
+import Link from "next/link";
 import SocialButton from "./(components)/social-button";
 import { User } from 'lucide-react';
+
 
 export default function WelcomePage() {
   return (
@@ -53,7 +55,7 @@ export default function WelcomePage() {
         </div>
 
         <p className="mt-8 text-center text-sm text-gray-500">
-          Already have an account? <span className="text-brand-dark font-bold cursor-pointer">Log in</span>
+          Already have an account? <Link href={'/login-page'}><span className="text-brand-dark font-bold cursor-pointer">Log in</span></Link>
         </p>
       </div>
     </main>
