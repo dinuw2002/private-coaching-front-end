@@ -1,42 +1,32 @@
-import SocialButton from "../(components)/social-button";
 import Input from '../(components)/input-ui';
-import Link from 'next/link';
-import { User } from 'lucide-react';
+import SocialButton from "../(components)/social-button";
+import { User, Mail, Lock } from 'lucide-react';
+import Link from "next/link"
 
-export default function LoginPage() {
+export default function SignUpPage() {
   return (
-    <main className="min-h-screen bg-brand-light flex items-center justify-center p-6">
+    <main className="min-h-screen bg-brand-light flex items-center justify-center p-6 py-12">
       <div className="w-full max-w-md bg-white rounded-[2.5rem] p-10 shadow-sm">
-        {/* Header */}
-        <h1 className="text-3xl font-bold text-center text-brand-dark mb-10">Login</h1>
+        <h1 className="text-3xl font-bold text-center text-brand-dark mb-8">Create Account</h1>
 
-        {/* Form */}
-        <form className="space-y-2">
-          <Input 
-            iconType="email" 
-            placeholder="Email" 
-            name="email"
-            required
-          />
-          <Input 
-            iconType="password" 
-            placeholder="Password" 
-            name="password"
-            required
-          />
-          
-          <div className="text-center mb-6">
-            <Link href="#" className="text-sm font-medium text-gray-500 hover:text-brand-dark underline decoration-gray-200 underline-offset-4">
-              Forgot Password?
-            </Link>
+        <form className="space-y-3">
+          {/* First & Last Name Row */}
+          <div className="flex gap-3">
+            <Input iconType="user" placeholder="First Name" name="firstName" required />
+            <Input iconType="user" placeholder="Last Name" name="lastName" required />
           </div>
 
-          <button 
-            type="submit"
-            className="w-full bg-brand-dark text-white py-4 rounded-full font-bold hover:opacity-95 transition-all active:scale-[0.99]"
-          >
-            Login
-          </button>
+          <Input iconType="email" placeholder="Email Address" name="email" required />
+          
+          <Input iconType="password" placeholder="Password" name="password" required />
+          
+          <Input iconType="password" placeholder="Confirm Password" name="confirmPassword" required />
+          
+          <div className="pt-4">
+            <button className="w-full bg-brand-dark text-white py-4 rounded-full font-bold hover:opacity-95 transition-all">
+              Sign Up
+            </button>
+          </div>
         </form>
 
         {/* Divider */}
@@ -75,12 +65,8 @@ export default function LoginPage() {
           />
         </div>
 
-        {/* Footer */}
-        <p className="mt-10 text-center text-sm text-gray-400">
-          Need an account?{' '}
-          <Link href="/signup-page" className="text-brand-dark font-bold hover:underline">
-            Sign up
-          </Link>
+        <p className="mt-8 text-center text-sm text-gray-500">
+          Already have an account? <Link href={'/login-page'}><span className="text-brand-dark font-bold cursor-pointer">Log in</span></Link>
         </p>
       </div>
     </main>
