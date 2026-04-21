@@ -8,6 +8,7 @@ import { User } from 'lucide-react';
 import Input from '../(components)/input-ui';
 import SocialButton from "../(components)/social-button";
 import api from '../lib/axios';
+import axios from 'axios';
 
 export default function SignUpPage() {
   const router = useRouter();
@@ -40,7 +41,7 @@ export default function SignUpPage() {
         return;
       }
 
-      const response = await api.post('/auth/register', formData);
+      const response = await axios.post('https://private-coaching-back-end.onrender.com/api/auth/register', formData);
       toast.success("Account created successfully!");
       router.push('/login-page');
     } catch (error: any) {
