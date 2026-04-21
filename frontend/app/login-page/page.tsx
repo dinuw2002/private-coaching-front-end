@@ -7,7 +7,8 @@ import { User } from 'lucide-react';
 
 import SocialButton from "../(components)/social-button";
 import Input from '../(components)/input-ui';
-import api from '../lib/axios';
+import axios from 'axios';
+
 
 export default function LoginPage() {
   const router = useRouter();
@@ -30,7 +31,7 @@ export default function LoginPage() {
     setLoading(true);
 
     try {
-      const response = await api.post('/auth/login', formData);
+      const response = await axios.post('https://private-coaching-back-end.onrender.com/api/auth/login', formData);
       
       // 4. Save the Token
       localStorage.setItem('token', response.data.token);
